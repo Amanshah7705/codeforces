@@ -60,6 +60,30 @@ void forword2(){
         }
     }
 }
+void backword1(){
+    ll i,j;
+      for(i=0;i<N;i++){
+          for(j=0;j<bita;j++){
+              bool ok = (1LL<<i)&j;
+              if(ok){
+                 dp1[j] -= dp1[j ^ (1LL<<i)];
+              }
+          }
+      }
+}
+
+void backword2(){
+    ll i,j;
+    // for x & y = x
+    for(i=0;i<N;i++){
+        for(j=0;j<bita;j++){
+            bool ok = (1LL<<i)&j;
+            if(ok){
+               dp2[j ^ (1LL<<i)] -= dp2[j];
+            }
+        }
+    }
+}
 int main()
 {
     ios_base::sync_with_stdio(false);
